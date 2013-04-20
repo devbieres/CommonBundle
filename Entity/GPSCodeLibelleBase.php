@@ -22,8 +22,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
-use JMS\SerializerBundle\Annotation\Expose;
-use JMS\SerializerBundle\Annotation\Exclude;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Liste les caractéristiques d'une entité ayant des coordonnées GPS
