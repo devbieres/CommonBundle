@@ -29,7 +29,7 @@ use JMS\SerializerBundle\Annotation\Exclude;
  * Liste les caractéristiques d'une entité ayant des coordonnées GPS
  * @ORM\MappedSuperClass
  */
-abstract class GPSBase extends EntityBase  
+abstract class GPSCodeLibelleBase extends CodeLibelleBase  
 {
 
     /**
