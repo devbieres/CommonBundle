@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "DevBieres": "src/"
+            "DevBieres\\Common\\BaseBundle": "/"
         }
     }
 }
