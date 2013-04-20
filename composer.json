@@ -21,5 +21,6 @@
         "psr-0": {
             "DevBieres\\Common\\BaseBundle": ""
         }
-    }
+    },
+    "target-dir":"DevBieres/Common/BaseBundle"
 }
