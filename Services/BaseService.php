@@ -1,5 +1,5 @@
 <?php
-namespace DevBieres\Common\BaseBundle\Service;
+namespace DevBieres\Common\BaseBundle\Services;
 /*
  * ----------------------------------------------------------------------------
  * « LICENCE BEERWARE » (Révision 42):
