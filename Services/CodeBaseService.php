@@ -1,5 +1,5 @@
 <?php
-namespace DevBieres\Common\BaseBundle\Manager;
+namespace DevBieres\Common\BaseBundle\Services;
 /*
  * ----------------------------------------------------------------------------
  * « LICENCE BEERWARE » (Révision 42):
@@ -21,14 +21,14 @@ namespace DevBieres\Common\BaseBundle\Manager;
 /**
  * Classe de base pour les managers d'entité qui sont des CodeLibelleBase
  */
-abstract class CodeBaseManager extends BaseManager {
+abstract class CodeBaseService extends BaseService {
 
     /**
      * Redirection vers l'appel du repo
      */
     public function findOneByCode($code) {
           return $this->getRepo()->findOneByCode($code);
-    } // Fin de findOneById
+    } // Fin de findOneByCode
 
 } 
 

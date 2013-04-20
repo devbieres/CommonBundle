@@ -1,5 +1,5 @@
 <?php
-namespace DevBieres\Common\BaseBundle\Manager;
+namespace DevBieres\Common\BaseBundle\Service;
 /*
  * ----------------------------------------------------------------------------
  * « LICENCE BEERWARE » (Révision 42):
@@ -21,7 +21,7 @@ namespace DevBieres\Common\BaseBundle\Manager;
 /**
  * Classe de base pour les managers d'entité
  */
-abstract class BaseManager {
+abstract class BaseService {
 
   /**
    * @var EntityManager
