@@ -52,6 +52,11 @@ class BaseController extends Controller
 	  * Retourne le service de validation
 	  */
 	 protected function getValidator() { return $this->get('validator'); }
+
+	 /**
+	  * Validation
+	  */
+	 protected function validate($entity) { return $this->get('validator')->validate($entity); }
      /**
       * Mise à jour de la langue de l'utilisateur
       */
