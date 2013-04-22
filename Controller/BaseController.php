@@ -48,6 +48,10 @@ class BaseController extends Controller
       */
      protected function getUrlSource() { return  $this->getRequest()->headers->get('referer'); }
 
+	 /**
+	  * Retourne le service de validation
+	  */
+	 protected function getValidator() { return $this->get('validator'); }
      /**
       * Mise à jour de la langue de l'utilisateur
       */
