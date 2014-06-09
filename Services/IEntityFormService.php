@@ -1,16 +1,16 @@
 <?php
-namespace DevBieres\Common\BaseBundle\Services;
+namespace DevBieres\CommonBundle\Services;
 /*
  * ----------------------------------------------------------------------------
  * « LICENCE BEERWARE » (Révision 42):
- * <devbieres@lafamillebn.net> a créé ce fichier. Tant que vous conservez cet avertissement,
+ * <thierry<at>lafamillebn<point>net> a créé ce fichier. Tant que vous conservez cet avertissement,
  * vous pouvez faire ce que vous voulez de ce truc. Si on se rencontre un jour et
  * que vous pensez que ce truc vaut le coup, vous pouvez me payer une bière en
  * retour. 
  * ----------------------------------------------------------------------------
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
- * <devbieres@lafamillebn.net> wrote this file. As long as you retain this notice you
+ * <thierry<at>lafamillebn<point>net> wrote this file. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy me a beer in return. 
  * ----------------------------------------------------------------------------
@@ -18,17 +18,11 @@ namespace DevBieres\Common\BaseBundle\Services;
  * ----------------------------------------------------------------------------
 */
 
-/**
- * Classe de base pour les managers d'entité qui sont des CodeLibelleBase
- */
-abstract class CodeBaseService extends BaseService {
+interface IEntityFormService {
 
-    /**
-     * Redirection vers l'appel du repo
-     */
-    public function findOneByCode($code) {
-          return $this->getRepo()->findOneByCode($code);
-    } // Fin de findOneByCode
+		/**
+		 * Get Form ...
+		 */
+		public function getForm();
 
-} 
-
+} // /IEntityFormService

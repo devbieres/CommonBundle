@@ -1,0 +1,52 @@
+Bad credentials: Informations invalides.
+action:
+   add: Ajouter
+   back_to_list: Annuler
+   close: Fermer
+   duplicate: Dupliquer
+   edit: Mise à jour 
+   new: Nouveau
+   newl: Nouvel
+   newe: Nouvelle
+   save: Enregistrer
+   search: Rechercher 
+common:
+   code: Code
+   filter: Filtres
+   from: De
+   end: Fin
+   empty_value: Veuillez choisir une option ...
+   keywords: Mots-clés
+   label: Libellé
+   search: Recherche
+   select: Sélection
+   start: Début
+   to: Vers
+   user: Utilisateur
+filter:
+   groupby: Groupement
+flash:
+    form:
+      error: Une erreur est survenue.
+login:
+    title: Connexion
+    valid: Valider
+    logout: Déconnexion
+message:
+    confirm:
+       param_delete: Êtes-vous sûr de vouloir supprimer %code%-%label%
+       delete: Êtes-vous sûr de vouloir supprimer cet élément ?
+    delete_success: L'élément a été supprimé.
+    delete_failure: L'élément n'a pu être supprimé
+    edit_success: L'élément a été mis à jour.
+    new_success: Le nouvel élément a été créé.
+    warning:
+       data_not_saved: Les données n'ont pas été sauvées
+tooltip:
+    add: Ajouter
+    delete: Supprimer
+    duplicate: Dupliquer
+    edit: Mettre à jour
+user:
+    lastname: Nom
+    firstname: Prenom

@@ -1,0 +1,39 @@
+{# Some parameters ... #}
+{% if showValidation is not defined %} {% set showValidation = true %} {% endif %}
+{% if showCancel is not defined %} {% set showCancel = true %} {% endif %}
+{% if validationText is not defined %} {% set validationText = 'action.save'  %} {% endif %}
+
+{# Start of the form #}
+{{ 
+  form_start(
+       form,
+       {
+         'attr' : {'class' : 'form-horizontal', 'role' : 'form' }
+       }
+  )
+}}
+
+   {% if not form.vars.valid %}
+      <div class="alert alert-danger" >
+          <h4> {{ 'flash.form.error'|trans }} </h4>
+          {{ form_errors(form) }}
+      </div>
+   {% endif %}
+
+   {{ include ('DevBieresCommonBundle:form:Form.Fields.html.twig', { 'children': form.children }) }}
+
+   {{ form_rest(form) }}
+
+    <!-- Save/cancel buttons -->
+    <div class="row">
+        <div class="form-actions text-right">
+            {% if showValidation  %}
+        	<button type="submit" class="btn btn-primary"  >{{ validationText|trans }}</button>
+            {% endif %}
+            {% if showCancel  %}
+                 <a href="javascript:back(-1);" class="btn btn-default">{{ 'action.back_to_list'|trans }}</a>
+            {% endif %}
+        </div>
+     </div>
+    
+</form>

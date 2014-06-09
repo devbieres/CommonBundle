@@ -1,0 +1,10 @@
+   {% for child in children %}
+        {% if child.count > 0 %}
+           {# <h3> {{ child.vars.name|trans }} </h3> #}
+           {{ include ('DevBieresCommonBundle:form:Form.Fields.html.twig', { 'children': child.children }) }}
+        {% else %}
+           <div class="row" >
+              {{ include ('DevBieresCommonBundle:form:Form.Field.html.twig', { 'child': child }) }}
+           </div>
+        {% endif %}
+   {% endfor %}

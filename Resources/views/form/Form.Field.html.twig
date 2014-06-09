@@ -1,0 +1,15 @@
+{% if showCol is not defined %} {% set showCol = true %} {% endif %}
+{% if css_class is not defined %} {% set css_class = 'form-control' %} {% endif %}
+
+
+     {% if showCol %} <div class="col-lg-12" > {% endif %}
+          <div class="form-group{% if not child.vars.valid %} has-error {% endif %}" >
+             {% if "hidden" not in child.vars.block_prefixes %}
+                 {{ form_label(child) }}
+             {% endif %}
+             {{ form_widget(child, {'attr' : {'class': css_class } }) }} 
+             {% if not child.vars.valid %}
+                 <p class="help-block alert-danger" > {{ form_errors(child) }} </p>
+             {% endif %}
+          </div>
+     {% if showCol %} </div> {% endif %}

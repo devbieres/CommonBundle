@@ -1,83 +1,72 @@
 <?php
-namespace DevBieres\Common\BaseBundle\Controller;
+namespace DevBieres\CommonBundle\Controller;
 /*
  * ----------------------------------------------------------------------------
  * « LICENCE BEERWARE » (Révision 42):
- * <devbieres@lafamillebn.net> a créé ce fichier. Tant que vous conservez cet avertissement,
+ * <thierry<at>lafamillebn<point>net> a créé ce fichier. Tant que vous conservez cet avertissement,
  * vous pouvez faire ce que vous voulez de ce truc. Si on se rencontre un jour et
  * que vous pensez que ce truc vaut le coup, vous pouvez me payer une bière en
  * retour. 
  * ----------------------------------------------------------------------------
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
- * <devbieres@lafamillebn.net> wrote this file. As long as you retain this notice you
+ * <thierry<at>lafamillebn<point>net> wrote this file. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy me a beer in return. 
  * ----------------------------------------------------------------------------
  * Plus d'infos : http://fr.wikipedia.org/wiki/Beerware
  * ----------------------------------------------------------------------------
-*/
+ */
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+//use Symfony\Component\HttpFoundation\Request;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
-class BaseController extends Controller 
-{
+/**
+ *
+ */
+abstract class BaseController extends Controller {
+	
+	/**
+	 * Rapid access to isGranted
+	 */
+	protected function isGranted($role) {
+          return $this->get('security.context')->isGranted($role);
+	} // /isGranted
 
-     /**
-      * Retourne le log
-      */
-     protected function getLogger() { return $this->get("logger"); }
+	/**
+	 * Rapid access to trans
+	 */
+	protected function trans($message) { return $this->get('translator')->trans($message); }
 
-     /**
-      * retourne la fonction de serialization
-      */
-     protected function getSerializer() { return $this->get("serializer"); }
 
-     /**
-      * Retourne la requete
-      */
-     //protected function getRequest() { return $this->get('request'); }
+	/**
+	 * Rapid access to log (info)
+	 */
+	protected function info($message) {
+               $this->get('logger')->info($message);
+	} // /log
 
-     /**
-      * Retourne la session
-      */
-     protected function getSession() { return $this->get('session'); }
+	/**
+	 * Rapide access to session
+	 */
+	protected function getSession() { return $this->getRequest()->getSession(); }
 
-     /**
-      * Retourne l'url d'origine
-      */
-     protected function getUrlSource() { return  $this->getRequest()->headers->get('referer'); }
+	/**
+	 * Rapid acces to store a message in flash
+	 */
+	private function setFlash($flash, $message, $trans = 1) {
+	    if($trans) { $message = $this->trans($message); }
+        $this->getSession()->getFlashBag()->add($flash, $message);
+	}
 
-	 /**
-	  * Retourne le service de validation
-	  */
-	 protected function getValidator() { return $this->get('validator'); }
+    /**
+	 * Some access
+	 */
+	protected function setFlashSuccess($message, $trans = 1) { $this->setFlash('success', $message, $trans); }
+	protected function setFlashError($message, $trans = 1) { $this->setFlash('danger', $message, $trans); }
+	protected function setFlashWarning($message, $trans = 1) { $this->setFlash('warning', $message, $trans); }
 
-	 /**
-	  * Validation
-	  */
-	 protected function validate($entity) { return $this->get('validator')->validate($entity); }
-     /**
-      * Mise à jour de la langue de l'utilisateur
-      */
-     protected function setLocale($locale) {
-        $this->getSession()->set('_locale', $locale);
-     }
-
-     /**
-      * Raccourci vers le service de traduction
-      */
-     protected function trans($var) {
-          return $this->get('translator')->trans($var);
-     }
-
-     /**
-      * Centralisation d'une méthode de conservation de messages
-      */
-     protected function storeFlash($message) { 
-         $this->getSession()->getFlashBag()->add('flash', $message);
-     } 
-
-}
-
-?>
+} // /BaseController

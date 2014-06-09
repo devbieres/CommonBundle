@@ -1,16 +1,16 @@
 <?php
-namespace DevBieres\Common\BaseBundle\Entity;
+namespace DevBieres\CommonBundle\Entity;
 /*
  * ----------------------------------------------------------------------------
  * « LICENCE BEERWARE » (Révision 42):
- * <devbieres@lafamillebn.net> a créé ce fichier. Tant que vous conservez cet avertissement,
+ * <thierry<at>lafamillebn<point>net> a créé ce fichier. Tant que vous conservez cet avertissement,
  * vous pouvez faire ce que vous voulez de ce truc. Si on se rencontre un jour et
  * que vous pensez que ce truc vaut le coup, vous pouvez me payer une bière en
  * retour. 
  * ----------------------------------------------------------------------------
  * ----------------------------------------------------------------------------
  * "THE BEER-WARE LICENSE" (Revision 42):
- * <devbieres@lafamillebn.net> wrote this file. As long as you retain this notice you
+ * <thierry<at>lafamillebn<point>net> wrote this file. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy me a beer in return. 
  * ----------------------------------------------------------------------------
@@ -20,30 +20,28 @@ namespace DevBieres\Common\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as JMS;
 
-use JMS\Serializer\Annotation\ExclusionPolicy;
-use JMS\Serializer\Annotation\Expose;
-use JMS\Serializer\Annotation\Exclude;
 
 /**
- * Entité de base pour les certaines entités utilisées dans l'application
+ * Entite permettant de stocker des parametres
  * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks
- * @ExclusionPolicy("all")
+ * @JMS\ExclusionPolicy("all")
  */
-abstract class EntityBase 
-{
+class EntityBase {
+
    /**
     * @ORM\Id
     * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
-    * @Expose
+    * @JMS\Expose
     */
-   protected $id;
-   public function getId() { return $this->id; }
+    protected $id;
+    public function getId() { return $this->id; }
 
-   /**
+
+       /**
     * @ORM\Column(type="datetime")
     */
    protected $createdAt;
@@ -72,5 +70,4 @@ abstract class EntityBase
    {
        $this->updatedAt = new \DateTime(date("Y-m-d H:i:s")); 
    }
-
-} // Fin de Base
+}
