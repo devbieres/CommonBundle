@@ -22,8 +22,8 @@
     },
     "autoload": {
         "psr-0": {
-            "DevBieres\\Common\\BaseBundle": ""
+            "DevBieres\\CommonBundle": ""
         }
     },
-    "target-dir":"DevBieres/Common/BaseBundle"
+    "target-dir":"DevBieres/CommonBundle"
 }
