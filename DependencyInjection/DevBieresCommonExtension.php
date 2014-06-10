@@ -1,6 +1,6 @@
 <?php
 
-namespace DevBieres\Common\BaseBundle\DependencyInjection;
+namespace DevBieres\CommonBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class DevBieresCommonBaseExtension extends Extension
+class DevBieresCommonExtension extends Extension
 {
     /**
      * {@inheritDoc}

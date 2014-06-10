@@ -1,6 +1,6 @@
 services:
-    a5sys.twig.ico_extension:
-       class: DevBieres\CommonBundle\Twig\Extension\IconExtension
+    devbieres.twig.ico_extension:
+       class: DevBieres\CommonBundle\Twig\Extension\IcoExtension
        tags:
            - { name: twig.extension }
 

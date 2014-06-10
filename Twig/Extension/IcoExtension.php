@@ -19,6 +19,6 @@ class IcoExtension extends \Twig_Extension {
              sprintf("<i class='fa fa-%s' ></i>", $icon);
      } // getGlyphFilter
 
-     public function getName() { return 'ico_extension'; }
+     public function getName() { return 'devbieres.twig.ico_extension'; }
 
 } // /IcoExtension
