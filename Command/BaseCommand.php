@@ -54,14 +54,17 @@ abstract class BaseCommand extends ContainerAwareCommand
     /**
      * Namespace utilisé pour le chargement des repos
      */
-    protected abstract function getNameSpace();
+    protected function getNameSpace() { return FALSE; }
 
     /**
      * Retourne le repository
      * @param string $nom nom de la classe pour lequel on cherche le repository
      */    
-    protected function getRepo($nom) {
-          return $this->getEntityManager()->getRepository(sprintf('%s:%s', $this->getNameSpace(),$nom));
+    protected function getRepo($nom, $namespace = '') {
+        // Which namespace ...
+		if(empty($namespace)) { $namespace = $this->getNameSpace(); }
+		// Get info
+        return $this->getEntityManager()->getRepository(sprintf('%s:%s', $namespace,$nom));
     } // Fin de getRepo
 
      /**
@@ -75,6 +78,4 @@ abstract class BaseCommand extends ContainerAwareCommand
       protected function get($nom) {
            return $this->getContainer()->get($nom);
       }
-}
-
-?>
+} // /BaseCommand
